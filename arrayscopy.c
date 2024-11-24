@@ -66,7 +66,7 @@ int array[10] = { 10, 20, 25, 30, 33, 40, 50, 55, 60, 70 };  // array declaratio
     
 }
 
-
+//função que imprime uma string caracter a caracter, utilizando for e break
 void exemplo3(void) {
 char array[6] = { 'G', 'e', 'e', 'k', 's', '\0' }; // creating array of character i.e. string
 
@@ -79,14 +79,14 @@ for (int i = 0; i < sizeof(array); i++) {
     }   
 }
 
-
+//função que cria um array bidimensional 3 por 2, imprimindo-o
 void exemplo4(void) {
  int a[3][2] = { {10, 20}, {30, 40}, {50, 60} }; // declaring and initializing array
 
-   printf("EXEMPLO4: Impressão de um array tridimensional inicializado com: {10, 20}, {30, 40}, {50,60}\r\n");
+   printf("EXEMPLO4: Impressão de um array bidimensional inicializado com: {10, 20}, {30, 40}, {50,60}\r\n");
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
+    for (int i = 0; i < 3; i++) {   // 3 linhas
+        for (int j = 0; j < 2; j++) {   // 2 colunas
             printf("%d ",a[i][j]);
         }
         printf("\n");
@@ -95,7 +95,7 @@ void exemplo4(void) {
 
 
 void exemplo5(void) {
-int numeros[5];
+int numeros[5]={10, 20, 30, 40, 50};
 
 
     printf("Introduza consecutivamente 5 números conforme indicado:");
