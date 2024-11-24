@@ -83,7 +83,7 @@ for (int i = 0; i < sizeof(array); i++) {
 void exemplo4(void) {
  int a[3][2] = { {10, 20}, {30, 40}, {50, 60} }; // declaring and initializing array
 
-   printf("EXEMPLO3: Impressão de um array tridimensional inicializado com: {10, 20}, {30, 40}, {50,60}\r\n");
+   printf("EXEMPLO4: Impressão de um array tridimensional inicializado com: {10, 20}, {30, 40}, {50,60}\r\n");
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 2; j++) {
