@@ -247,7 +247,7 @@ void exemplo10();
 
 int main() {
 int num;
-    /*exemplo1();
+    exemplo1();
     Wait_user_press_a_key();
 
     exemplo2();
@@ -267,7 +267,7 @@ int num;
 
 
     exemplo7();
-    Wait_user_press_a_key(); */
+    Wait_user_press_a_key();
 
     exemplo8();
     Wait_user_press_a_key();
@@ -277,10 +277,8 @@ scanf ("%d", &num);
 if (num == 1){
     exemplo9();
 
-    return 0;
-
 } else 
- exemplo10();
+    exemplo10();
 }
 
 // Function definitions
