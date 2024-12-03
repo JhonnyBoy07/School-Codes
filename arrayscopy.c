@@ -9,34 +9,13 @@ void Clear_terminal(void) {
     printf("\033[2J\033[1;1H"); // Sequência de ESC para limpar o terminal
 }
 
-
-void Init_terminal(void) {
-
-    SetConsoleOutputCP(65001); // Configura a Code Page de saida do terminal para UTF-8 para permitir acentos
-    SetConsoleCP(65001);       // Configura a Code Page de  entrada do terminal para UTF-8 para permitir acentos
-    Clear_terminal();  
-}
-
-
-void Wait_user_press_a_key(void) {
-    
-    printf("\r\nPrima uma tecla para o próximo exemplo!\r\n");
-    while (kbhit()==0);
-    while (kbhit()!=0)
-        getch();
-
-    Clear_terminal();
-}
-
-
-
-
- // Função para demonstrar o acesso simples a posições de um array de 6 elementos pré-inicializado com os valores 15, 25, 35, 45, 55, 55
- 
+/** 
+ * Função para demonstrar o acesso simples a posições de um array de 6 elementos pré-inicializado com os valores 15, 25, 35, 45, 55, 55
+ */
 void exemplo1(void) {
 int array[6] = { 15, 25, 35, 45, 55, 55 };  // array declaration and initialization
 
-    printf("EXEMPLO1: Acesso simples a elementos de um array que foi inicializado com: { 15, 25, 35, 45, 55, 55}\r\n");
+    printf("EXEMPLO1: Acesso simples a elementos de um array que foi inicializado com: { 15, 25, 35, 45, 55,55 }\r\n");
    
     // accessing element at index 1 i.e 2nd element
     printf("Elemento do array[1]: %d\r\n", array[1]);
@@ -48,45 +27,46 @@ int array[6] = { 15, 25, 35, 45, 55, 55 };  // array declaration and initializat
     printf("Elemento do array[5]: %d\r\n", array[5]);
 
     // accessing element at index 420, outside of array dimension 
-    
-    //existem dois resultados possiveis, aquele em que o comando é completamente ignorado, e aquele em que o comando é executado e nos é dado o valor 0, que não possui qualquer significado nesta situação.
+    printf("Elemento do array[420]: %d\r\n", array[420]); 
+    //colar a linha 52 da cópia.
+    printf("   Não se sabe qual é o valor! pois é uma posição de memória fora do array!");
+
 }
 
-//função para analisar um array de 10 posições e imprimir se cada um dos elementos é par ou impar
-void exemplo2(void) {
-int array[10] = { 10, 20, 25, 30, 33, 40, 50, 55, 60, 70 };  // array declaration and initialization
 
-     printf("EXEMPLO2: Print dos elementos de um array dizendo se são pares ou impares.\r\n");
+void exemplo2(void) {
+int array[7] = { 10, 20, 30, 40, 50, 60, 70 };  // array declaration and initialization
+
+     printf("EXEMPLO2: Print dos elementos de um array em que o elemento n.2 (terceiro elemento) é modificado\r\n");
+
+    array[2] = 100;
+
 
     printf("Elements in Array:\r\n");
-    for (int i = 0; i < sizeof(array)/sizeof(int); i++) //lê os elementos do array 1 a 1 até chegar à ultima posição do array.
-    if (array[i]%2 == 0)    //se o valor do array for par
-        printf("array[%d]=%d é par.\r\n", i, array[i]);
-    else printf("array[%d]=%d é impar.\r\n", i, array[i]);
+    for (int i = 0; i < sizeof(array)/sizeof(int); i++) 
+        printf("array[%d]=%d\r\n", i, array[i]);
     
 }
 
-//função que imprime uma string caracter a caracter, utilizando for e break
+
 void exemplo3(void) {
 char array[6] = { 'G', 'e', 'e', 'k', 's', '\0' }; // creating array of character i.e. string
 
-    printf("EXEMPLO3: Impressão de uma string caracter a caracter, utilizando for e break\r\n");
+    printf("EXEMPLO3: Impressão de uma string caracter a caracter, utilizando um while\r\n");
     // printing string
-for (int i = 0; i < sizeof(array); i++) {
-    if (i == sizeof(array)) 
-        break;
-        printf("%c", array[i]);
-    }   
-}
+    int i = 0;
+    while (array[i]) {
+        printf("%c", array[i++]);
+    }
+}   
 
-//função que cria um array bidimensional 3 por 2, imprimindo-o
 void exemplo4(void) {
- int a[3][2] = { {10, 20}, {30, 40}, {50, 60} }; // declaring and initializing array
+ int a[2][3] = { {10, 20, 30}, {40, 50, 60} }; // declaring and initializing 2d array
 
-   printf("EXEMPLO4: Impressão de um array bidimensional inicializado com: {10, 20}, {30, 40}, {50,60}\r\n");
+   printf("EXEMPLO4: Impressão de um array bdimensional inicializado com: {10, 20, 30}, {40, 50, 60}\r\n");
 
-    for (int i = 0; i < 3; i++) {   // 3 linhas
-        for (int j = 0; j < 2; j++) {   // 2 colunas
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
             printf("%d ",a[i][j]);
         }
         printf("\n");
@@ -95,7 +75,7 @@ void exemplo4(void) {
 
 
 void exemplo5(void) {
-int numeros[5]={10, 20, 30, 40, 50};
+int numeros[5];
 
 
     printf("Introduza consecutivamente 5 números conforme indicado:");
@@ -116,8 +96,8 @@ void exemplo6(void) {
 float sum = 0.0;
 float numeros[50];
 int n_numeros=0;
-
-
+  
+    
     printf("Qual o número de numeros que pretende calcular a média [MAX=%d]: ");
     scanf("%d", &n_numeros);
 
@@ -168,42 +148,145 @@ char destino[50];
 }
 
 
-void exemplo9(void) {
-    
-    for(;;) 
-        printf("%d ", rand());
+void exemplo8(void) {
+char text_ascii[]={"\
+    _             _       _     _                           \r\n\
+   / \\   _ __ ___| |__   | |   (_)_ __  _   ___  __        \r\n\
+  / _ \\ | '__/ __| '_ \\  | |   | | '_ \\| | | \\ \\/ /    \r\n\
+ / ___ \\| | | (__| | | | | |___| | | | | |_| |>  <         \r\n\
+/_/   \\_\\_|  \\___|_| |_| |_____|_|_| |_|\\__,_/_/\\_\\   \r\n\
+"};                                                                                                                                                                                                     
+                                                                                                    
+char image_ascii[]={"\
+....................................................................................................\r\n\
+....................................................................................................\r\n\
+..................................................=.................................................\r\n\
+.................................................=+-................................................\r\n\
+................................................-+++................................................\r\n\
+................................................+++++...............................................\r\n\
+...............................................++++++=..............................................\r\n\
+..............................................=+++++++-.............................................\r\n\
+.............................................:+++++++++:............................................\r\n\
+............................................:+++++++++++:...........................................\r\n\
+............................................++++++++++++=...........................................\r\n\
+...........................................=+++++++++++++=..........................................\r\n\
+..........................................-+++++++++++++++=.........................................\r\n\
+.........................................-+++++++++++++++++-........................................\r\n\
+........................................:+++++++++++++++++++........................................\r\n\
+........................................+++++++++++++++++++++.......................................\r\n\
+.......................................++++++++++++++++++++++=......................................\r\n\
+.......................................:++++++++++++++++++++++=.....................................\r\n\
+.....................................:...-+++++++++++++++++++++=....................................\r\n\
+....................................-++=...-++++++++++++++++++++-...................................\r\n\
+...................................-++++++-..-+++++++++++++++++++-..................................\r\n\
+..................................:++++++++++=::++++++++++++++++++-.................................\r\n\
+.................................:+++++++++++++++=+++++++++++++++++:................................\r\n\
+................................:+++++++++++++++++++++++++++++++++++:...............................\r\n\
+................................+++++++++++++++++++++++++++++++++++++:..............................\r\n\
+...............................+++++++++++++++++++++++++++++++++++++++:.............................\r\n\
+..............................+++++++++++++++++++++++++++++++++++++++++.............................\r\n\
+.............................+++++++++++++++++++++++++++++++++++++++++++:...........................\r\n\
+............................+++++++++++++++++++++++++++++++++++++++++++++...........................\r\n\
+...........................=++++++++++++++++++++++++++++++++++++++++++++++..........................\r\n\
+..........................+++++++++++++++++++++++++++++++++++++++++++++++++.........................\r\n\
+.........................=+++++++++++++++++++++++++++++++++++++++++++++++++=........................\r\n\
+........................=++++++++++++++++++++++=-:::-++++++++++++++++++++++++.......................\r\n\
+.......................=+++++++++++++++++++++:.........-+++++++++++++++++++++=......................\r\n\
+......................=++++++++++++++++++++-.............=++++++++++++++++++++=.....................\r\n\
+.....................=++++++++++++++++++++-...............-++++++++++++++++++++=....................\r\n\
+....................=++++++++++++++++++++-.................=++++++++++++++++++++=...................\r\n\
+...................=++++++++++++++++++++=...................+++++++++++++++++++++=..................\r\n\
+..................=+++++++++++++++++++++-...................-+++++++++++++++++++++=.................\r\n\
+.................=++++++++++++++++++++++.....................++++++++++++++++++++++=................\r\n\
+................=+++++++++++++++++++++++.....................+++++++++++++++-:-+++++=...............\r\n\
+...............=++++++++++++++++++++++++.....................=+++++++++++++++++-..:=+=..............\r\n\
+..............=+++++++++++++++++++++++++.....................=++++++++++++++++++++:.................\r\n\
+.............=++++++++++++++++++++++++++.....................=++++++++++++++++++++++-...............\r\n\
+............=+++++++++++++++++++++++++++:....................+++++++++++++++++++++++++=.............\r\n\
+...........=++++++++++++++++++++++++=--:.....................:-==+++++++++++++++++++++++=:..........\r\n\
+..........++++++++++++++++++++=:.....................................-++++++++++++++++++++-.........\r\n\
+.........=+++++++++++++++=-:.............................................:-++++++++++++++++-........\r\n\
+........=++++++++++++=:.......................................................-+++++++++++++=.......\r\n\
+.......=+++++++++=:...............................................................-=+++++++++-......\r\n\
+......=+++++++:.......................................................................-+++++++-.....\r\n\
+.....+++++-:.............................................................................:=++++-....\r\n\
+....=++-.....................................................................................=++-...\r\n\
+...-:...........................................................................................--..\r\n\
+....................................................................................................\r\n\
+"};  
 
+    printf("%s",text_ascii);                                                                                                
+    printf("%s",image_ascii);                                                                                       
 }
 
-int main(int argc, char *argv[]) {
 
-    Init_terminal();
-    exemplo1(); 
+void exemplo9(void) {
 
-    Wait_user_press_a_key();    
+    while(1) 
+        printf("%d ", rand());
+}
+
+void exemplo10(void) {
+
+    do{printf("%d ", rand());
+    } while (1);
+}
+
+// Function prototypes
+void Wait_user_press_a_key();
+void exemplo1();
+void exemplo2();
+void exemplo3();
+void exemplo4();
+void exemplo5();
+void exemplo6();
+void exemplo7();
+void exemplo8();
+void exemplo9();
+void exemplo10();
+
+int main() {
+int num;
+    /*exemplo1();
+    Wait_user_press_a_key();
+
     exemplo2();
-
-    Wait_user_press_a_key();    
+    Wait_user_press_a_key();
+    
     exemplo3();
-
-    Wait_user_press_a_key();    
+    Wait_user_press_a_key();
+    
     exemplo4();
-
-    Wait_user_press_a_key();    
+    Wait_user_press_a_key();
+    
     exemplo5();
-
-    Wait_user_press_a_key();    
+    Wait_user_press_a_key();
+    
     exemplo6();
+    Wait_user_press_a_key();
 
-    Wait_user_press_a_key();    
+
     exemplo7();
+    Wait_user_press_a_key(); */
 
+    exemplo8();
+    Wait_user_press_a_key();
 
+printf ("Use 'while'(1) or 'do while'(2)", num);
+scanf ("%d", &num);
+if (num == 1){
+    exemplo9();
 
+} else 
+ exemplo10();
+}
 
-}   
+// Function definitions
+void Init_terminal() {
+    printf("Terminal initialized.\n");
+}
 
-
-        
-
- 
+void Wait_user_press_a_key() {
+    printf("Press Enter to continue...\n");
+    getchar(); // Waits for the user to press Enter
+}
