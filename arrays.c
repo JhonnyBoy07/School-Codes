@@ -9,27 +9,6 @@ void Clear_terminal(void) {
     printf("\033[2J\033[1;1H"); // Sequência de ESC para limpar o terminal
 }
 
-
-void Init_terminal(void) {
-
-    SetConsoleOutputCP(65001); // Configura a Code Page de saida do terminal para UTF-8 para permitir acentos
-    SetConsoleCP(65001);       // Configura a Code Page de  entrada do terminal para UTF-8 para permitir acentos
-    Clear_terminal();  
-}
-
-
-void Wait_user_press_a_key(void) {
-    
-    printf("\r\nPrima uma tecla para o próximo exemplo!\r\n");
-    while (kbhit()==0);
-    while (kbhit()!=0)
-        getch();
-
-    Clear_terminal();
-}
-
-
-
 /** 
  * Função para demonstrar o acesso simples a posições de um array de 6 elementos pré-inicializado com os valores 15, 25, 35, 45, 55, 55
  */
