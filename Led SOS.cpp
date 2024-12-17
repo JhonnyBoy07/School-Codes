@@ -17,21 +17,16 @@ void loop() {
   Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   //O
@@ -39,21 +34,16 @@ void loop() {
   Serial.println("O");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("O");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("O");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   //S
@@ -61,21 +51,17 @@ void loop() {
   Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
+  Serial.println("\n\r");
   delay(2000);
 
   //SCP
@@ -85,21 +71,16 @@ void loop() {
   Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("S");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   //C
@@ -107,28 +88,21 @@ void loop() {
   Serial.println("C");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("C");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("C");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("C");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   //P
@@ -136,28 +110,21 @@ void loop() {
   Serial.println("P");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("P");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("P");
   delay(900);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
   delay(300);
 
   digitalWrite(LED_PIN, HIGH);
-  Serial.println("P");
   delay(300);
   digitalWrite(LED_PIN, LOW);
-  Serial.println("LED is off y");
+  Serial.println("\n\r");
   delay(5000);
 }
-
